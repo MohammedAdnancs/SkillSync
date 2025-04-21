@@ -74,11 +74,25 @@
     "@types/react": "^18",
     "@types/react-big-calendar": "^1.8.11",
     "@types/react-dom": "^18",
-    "eslint": "^8",
+    "eslint": "^9.0.0",
     "eslint-config-next": "14.2.14",
     "postcss": "^8",
     "react-email": "4.0.7",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
+  },
+  "resolutions": {
+    "rimraf": "^4.0.0",
+    "glob": "^9.0.0",
+    "inflight": "^2.0.0",
+    "lodash.template": "npm:eta@^2.0.0",
+    "@humanwhocodes/object-schema": "npm:@eslint/object-schema@latest",
+    "@humanwhocodes/config-array": "npm:@eslint/config-array@latest"
+  },
+  "overrides": {
+    "rimraf": "^4.0.0",
+    "glob": "^9.0.0",
+    "inflight": "^2.0.0",
+    "eslint": "^9.0.0"
   }
 }
