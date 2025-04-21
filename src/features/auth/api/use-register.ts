@@ -33,7 +33,7 @@ export const useRegister = () => {
           queryClient.invalidateQueries({queryKey: ["current"]});
           
           // After registration, guide user to create their first workspace
-          router.push("/workspaces/create");
+          router.push("/landingpage");
         },
         onError: () => {
           toast.error("Failed to sign up");
