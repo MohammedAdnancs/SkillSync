@@ -1,9 +1,8 @@
 import { toast } from "sonner";
 import { client } from "@/lib/rpc";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { InferRequestType , InferResponseType } from "hono";
+import { InferRequestType, InferResponseType } from "hono";
 import { useRouter } from "next/navigation";
-import { promise } from "zod";
 
 type ResponseType = InferResponseType<typeof client.api.auth.register["$post"]>;
 type RequestType = InferRequestType<typeof client.api.auth.register["$post"]>;
@@ -13,7 +12,7 @@ export const useRegister = () => {
   const queryClient = useQueryClient();
   
   const mutation = useMutation<ResponseType, Error, RequestType>({
-        mutationFn: async ({ json })=> {
+        mutationFn: async ({ json }) => {
           try{
             const response = await client.api.auth.register["$post"]({ json });
 
@@ -29,8 +28,12 @@ export const useRegister = () => {
         },
         onSuccess: () => {
           toast.success("Signed up");
-          router.refresh();
-          queryClient.invalidateQueries({queryKey: ["current"]})
+          
+          // Invalidate the current user query
+          queryClient.invalidateQueries({queryKey: ["current"]});
+          
+          // After registration, guide user to create their first workspace
+          router.push("/workspaces/create");
         },
         onError: () => {
           toast.error("Failed to sign up");

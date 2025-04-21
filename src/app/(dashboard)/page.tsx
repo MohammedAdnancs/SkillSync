@@ -1,9 +1,13 @@
-import { UserButton } from "@/features/auth/components/user-button";
-import { CreateWorkspaceForm } from "@/features/workspaces/components/create-workspaces-form";
+import { getCurrent } from "@/features/auth/queries";
+import { redirect } from "next/navigation";
 
 export const dynamic = 'force-dynamic';
 
-export default function DashboardPage() {
+const DashboardPage = async () => {
+  
+  const user = await getCurrent();
+  if (!user) redirect(`${process.env.NEXT_PUBLIC_APP_URL}/landingpage`)
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
       <h1 className="text-2xl font-bold mb-4">Welcome to your Dashboard</h1>
@@ -11,3 +15,5 @@ export default function DashboardPage() {
     </div>
   );
 }
+
+export default DashboardPage;
