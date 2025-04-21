@@ -2,9 +2,10 @@
 
 import { usePathname, useSearchParams } from "next/navigation";
 import NProgress from "nprogress";
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 
-export function NavigationProgress() {
+// This component safely uses useSearchParams inside Suspense
+function NavigationProgressInner() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -51,4 +52,13 @@ export function NavigationProgress() {
   }, [pathname, searchParams]);
 
   return null;
+}
+
+// Wrapper component that uses Suspense boundary
+export function NavigationProgress() {
+  return (
+    <Suspense fallback={null}>
+      <NavigationProgressInner />
+    </Suspense>
+  );
 }

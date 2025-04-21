@@ -34,3 +34,22 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Deployment Notes
+
+- Do NOT use `next export` with this project, as it uses the Next.js app directory. Static export is not supported for app directory features like `not-found.tsx`.
+- To build for production, use:
+
+```bash
+npm run build
+```
+
+- To start the production server, use:
+
+```bash
+npm start
+```
+
+- The `src/app/not-found.tsx` file is only used for runtime 404 handling. Do not try to visit or statically generate `/not-found` or `/_not-found` routes.
+
+For more information, see the [Next.js not-found documentation](https://nextjs.org/docs/app/api-reference/file-conventions/not-found).

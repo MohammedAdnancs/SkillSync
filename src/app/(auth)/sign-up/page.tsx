@@ -1,10 +1,7 @@
-import { getCurrent } from "@/features/auth/queries";
 import { SignUpCard } from "@/features/auth/components/sign-up-card";
-import { redirect } from "next/navigation"
 
-const SignUpPage = async () => {
-  const user = await getCurrent();
-  if (user) redirect("/")
+export const dynamic = 'force-dynamic';
+
+export default function SignUpPage() {
   return <SignUpCard />
 }
-export default SignUpPage;

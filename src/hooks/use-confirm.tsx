@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/card";
 import { set } from 'date-fns';
 
-export const useConfirm = (title:string , message:string , variant:ButtonProps["variant"] = "primary"): [()=> JSX.Element , ()=> Promise<unknown> ] => {
+export const useConfirm = (title:string , message:string , variant:ButtonProps["variant"] = "solid"): [()=> JSX.Element , ()=> Promise<unknown> ] => {
     const [promise, setpromise] = useState<{resolve:(value:boolean) => void} | null>(null);
 
     const confirm = () => {

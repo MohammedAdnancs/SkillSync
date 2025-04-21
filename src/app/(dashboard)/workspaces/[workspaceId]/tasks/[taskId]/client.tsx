@@ -18,6 +18,8 @@ export const TaskIdClient = () => {
 
     if(!data) return <PageError message = "Task Not Found"/>;
 
+    if(!data.project) return <PageError message = "Project Not Found for this Task"/>;
+
     return (
         <div className="flex flex-col">
             <TaskBreadCrumbs project={data.project} task={data} />
@@ -27,14 +29,12 @@ export const TaskIdClient = () => {
                 <TaskDescription task={data} />
             </div>
             <DottedSeparator className="my-6" />
-            {data && data.project && (
-              <TaskCodeGenerator 
+            <TaskCodeGenerator 
                 taskName={data.name}
                 taskDescription={data.description || ""}
-                projectId={data.projectId}
+                projectId={data.projectId || data.project.$id} // Use project.$id as fallback
                 techStack={data.project.techStack || ""}
-              />
-            )}
+            />
         </div>
     );
-};
+}

@@ -23,9 +23,9 @@ export const TeamAvatar = ({ team, className }: TeamAvatarProps) => {
         return "bg-purple-500";
       case "User interface Team":
         return "bg-pink-500";
-      case "Performance Engineer Team":
+      case "Performance Engineering Team":
         return "bg-yellow-500";
-      case "Tester Team":
+      case "Testing Team":
         return "bg-orange-500";
       case "Security Specialist Team":
         return "bg-red-500";

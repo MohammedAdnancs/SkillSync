@@ -136,7 +136,7 @@ export const CreateWorkspaceForm = ({ onCancel }: CreateWorkspaceFormProps) => {
                               remove Image
                             </Button>
                           ):(
-                            <Button type="button" disabled={isPending} variant="teritary" size="xs" className="w-fit mt-2" onClick={() => inputRef.current?.click()} >
+                            <Button type="button" disabled={isPending} variant="secondary" size="xs" className="w-fit mt-2" onClick={() => inputRef.current?.click()} >
                               Upload Image
                             </Button>
                           )

@@ -2,5 +2,5 @@ import { useParams } from "next/navigation";
 
 export const useStoryId = () => {
     const params = useParams();
-    return params.userStoryId as string;
+    return params?.userStoryId as string;
 }

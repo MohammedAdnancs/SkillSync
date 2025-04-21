@@ -1,15 +1,14 @@
 "use client"
 import { ColumnDef } from "@tanstack/react-table";
-import { Task } from "../types";
+import { Task } from "@/features/tasks/types";
 import { ArrowUpDown, MoreVertical } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ProjectAvatar } from "@/features/projects/components/project-avatar";
 import { MembersAvatar } from "@/features/members/components/members-avatar";
-import { TaskDate } from "./task-date";
+import { TaskDate } from "@/features/tasks/components/task-date";
 import { Badge } from "@/components/ui/badge";
 import { snakeCaseToTitleCase } from "@/lib/utils";
-import { TaskActions } from "./task-actions";
-
+import { TaskActions } from "@/features/tasks/components/task-actions";
 
 export const columns: ColumnDef <Task>[] = [
     {
@@ -116,7 +115,7 @@ export const columns: ColumnDef <Task>[] = [
     id:"actions",
     cell:({row}) => {
       const id = row.original.$id;
-      const projectId = row.original.projectId;
+      const projectId = row.original.projectId || "";  // Add fallback empty string
 
       return(
         <TaskActions id={id} projectId={projectId}>

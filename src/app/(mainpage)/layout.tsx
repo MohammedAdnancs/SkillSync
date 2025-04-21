@@ -8,11 +8,11 @@ import { FooterAuroraGradient } from "@/components/fotter";
 import { LandingNav } from "@/components/landing-nav";
 import { ThemeProvider } from "@/components/theme-provider";
 
-interface StandalinLayoutProps {
+interface MainpageLayoutProps {
     children: React.ReactNode;
 }
 
-export const landingPageLayout = ({children}:StandalinLayoutProps) => {
+export default function MainpageLayout({children}: MainpageLayoutProps) {
     return (
         <main className="landing-page min-h-screen overflow-hidden">
             <div className="mx-auto max-w-screen-2xl">
@@ -30,6 +30,4 @@ export const landingPageLayout = ({children}:StandalinLayoutProps) => {
             <FooterAuroraGradient />
         </main>
     );  
-};
-
-export default landingPageLayout;
+}
